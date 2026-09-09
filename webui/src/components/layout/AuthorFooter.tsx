@@ -64,15 +64,6 @@ export function AuthorFooter() {
           >
             <img src="/logos/xiaohongshu_logo.png" alt="小红书" className="w-6 h-6 object-contain" />
           </a>
-          <a
-            href="https://www.douyin.com/user/MS4wLjABAAAATJPY7LAlaa5X-c8uNdWkvz0jUGgpw4eeXIwu_8BhvqE"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-11 h-11 rounded-lg flex items-center justify-center border border-cyber-border-subtle hover:border-cyber-text-primary hover:shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all bg-cyber-bg-tertiary hover:scale-110"
-            title="抖音"
-          >
-            <img src="/logos/douyin.png" alt="抖音" className="w-6 h-6 object-contain" />
-          </a>
         </div>
       </div>
     </footer>

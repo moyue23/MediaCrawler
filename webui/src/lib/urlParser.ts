@@ -20,16 +20,6 @@ const platformPatterns: Record<string, {
       /xiaohongshu\.com\/user\/profile\/([a-zA-Z0-9]+)/,
     ],
   },
-  dy: {
-    video: [
-      /douyin\.com\/video\/(\d+)/,
-      /v\.douyin\.com\/([a-zA-Z0-9]+)/,
-      /iesdouyin\.com\/share\/video\/(\d+)/,
-    ],
-    creator: [
-      /douyin\.com\/user\/([a-zA-Z0-9_-]+)/,
-    ],
-  },
   bili: {
     video: [
       /bilibili\.com\/video\/(BV[a-zA-Z0-9]+)/,
@@ -38,25 +28,6 @@ const platformPatterns: Record<string, {
     ],
     creator: [
       /space\.bilibili\.com\/(\d+)/,
-    ],
-  },
-  wb: {
-    video: [
-      /weibo\.com\/\d+\/([a-zA-Z0-9]+)/,
-      /m\.weibo\.cn\/status\/(\d+)/,
-    ],
-    creator: [
-      /weibo\.com\/u\/(\d+)/,
-      /weibo\.com\/([a-zA-Z0-9]+)$/,
-    ],
-  },
-  ks: {
-    video: [
-      /kuaishou\.com\/short-video\/([a-zA-Z0-9_-]+)/,
-      /v\.kuaishou\.com\/([a-zA-Z0-9]+)/,
-    ],
-    creator: [
-      /kuaishou\.com\/profile\/([a-zA-Z0-9_-]+)/,
     ],
   },
 }

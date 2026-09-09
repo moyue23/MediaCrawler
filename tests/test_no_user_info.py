@@ -55,10 +55,9 @@ def test_creator_tables_removed():
 def test_content_tables_have_creator_hash():
     import database.models as m
     from sqlalchemy.orm import class_mapper
-    content_tables = ["XhsNote", "XhsNoteComment", "WeiboNote", "WeiboNoteComment",
+    content_tables = ["XhsNote", "XhsNoteComment",
                       "BilibiliVideo", "BilibiliVideoComment", "BilibiliUpDynamic",
-                      "DouyinAweme", "DouyinAwemeComment", "KuaishouVideo",
-                      "KuaishouVideoComment", "TiebaNote", "TiebaComment",
+                      "TiebaNote", "TiebaComment",
                       "ZhihuContent", "ZhihuComment"]
     for t in content_tables:
         cols = {c.name for c in class_mapper(getattr(m, t)).columns}

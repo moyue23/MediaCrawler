@@ -26,7 +26,6 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from database.mongodb_store_base import MongoDBConnection, MongoDBStoreBase
 from store.xhs._store_impl import XhsMongoStoreImplement
-from store.douyin._store_impl import DouyinMongoStoreImplement
 from config import db_config
 
 
@@ -67,9 +66,6 @@ class TestMongoDBRealConnection(unittest.TestCase):
                     "test_xhs_contents",
                     "test_xhs_comments",
                     "test_xhs_creators",
-                    "test_douyin_contents",
-                    "test_douyin_comments",
-                    "test_douyin_creators"
                 ]
 
                 for collection_name in test_collections:
@@ -268,51 +264,6 @@ class TestMongoDBRealConnection(unittest.TestCase):
             creator = await mongo_store.find_one("creators", {"user_id": "user_001"})
             self.assertIsNotNone(creator)
             self.assertEqual(creator["nickname"], "Test Creator")
-
-        asyncio.run(test())
-
-    def test_douyin_store_implementation(self):
-        async def test():
-            store = DouyinMongoStoreImplement()
-
-            video_data = {
-                "aweme_id": "dy_test_001",
-                "user_id": "user_001",
-                "nickname": "Test User",
-                "title": "Douyin Test Video",
-                "desc": "This is a test video",
-                "liked_count": "1000",
-                "comment_count": "100"
-            }
-            await store.store_content(video_data)
-
-            comment_data = {
-                "comment_id": "dy_comment_001",
-                "aweme_id": "dy_test_001",
-                "user_id": "user_002",
-                "nickname": "Comment User",
-                "content": "This is a test comment"
-            }
-            await store.store_comment(comment_data)
-
-            creator_data = {
-                "user_id": "user_001",
-                "nickname": "Test Creator",
-                "desc": "This is a test creator"
-            }
-            await store.store_creator(creator_data)
-
-            mongo_store = store.mongo_store
-
-            video = await mongo_store.find_one("contents", {"aweme_id": "dy_test_001"})
-            self.assertIsNotNone(video)
-            self.assertEqual(video["title"], "Douyin Test Video")
-
-            comment = await mongo_store.find_one("comments", {"comment_id": "dy_comment_001"})
-            self.assertIsNotNone(comment)
-
-            creator = await mongo_store.find_one("creators", {"user_id": "user_001"})
-            self.assertIsNotNone(creator)
 
         asyncio.run(test())
 

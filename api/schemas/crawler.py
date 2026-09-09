@@ -27,10 +27,7 @@ MAX_API_LIMIT_COUNT = 10000
 class PlatformEnum(str, Enum):
     """Supported media platforms"""
     XHS = "xhs"
-    DOUYIN = "dy"
-    KUAISHOU = "ks"
     BILIBILI = "bili"
-    WEIBO = "wb"
     TIEBA = "tieba"
     ZHIHU = "zhihu"
 

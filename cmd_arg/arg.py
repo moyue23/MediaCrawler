@@ -41,10 +41,7 @@ class PlatformEnum(str, Enum):
     """Supported media platform enumeration"""
 
     XHS = "xhs"
-    DOUYIN = "dy"
-    KUAISHOU = "ks"
     BILIBILI = "bili"
-    WEIBO = "wb"
     TIEBA = "tieba"
     ZHIHU = "zhihu"
 
@@ -162,7 +159,7 @@ async def parse_cmd(argv: Optional[Sequence[str]] = None):
             PlatformEnum,
             typer.Option(
                 "--platform",
-                help="Media platform selection (xhs=XiaoHongShu | dy=Douyin | ks=Kuaishou | bili=Bilibili | wb=Weibo | tieba=Baidu Tieba | zhihu=Zhihu)",
+                help="Media platform selection (xhs=XiaoHongShu | bili=Bilibili | tieba=Baidu Tieba | zhihu=Zhihu)",
                 rich_help_panel="Basic Configuration",
             ),
         ] = _coerce_enum(PlatformEnum, config.PLATFORM, PlatformEnum.XHS),
@@ -372,12 +369,6 @@ async def parse_cmd(argv: Optional[Sequence[str]] = None):
                 config.XHS_SPECIFIED_NOTE_URL_LIST = specified_id_list
             elif platform == PlatformEnum.BILIBILI:
                 config.BILI_SPECIFIED_ID_LIST = specified_id_list
-            elif platform == PlatformEnum.DOUYIN:
-                config.DY_SPECIFIED_ID_LIST = specified_id_list
-            elif platform == PlatformEnum.WEIBO:
-                config.WEIBO_SPECIFIED_ID_LIST = specified_id_list
-            elif platform == PlatformEnum.KUAISHOU:
-                config.KS_SPECIFIED_ID_LIST = specified_id_list
             elif platform == PlatformEnum.TIEBA:
                 config.TIEBA_SPECIFIED_ID_LIST = [
                     _normalize_tieba_note_id(item) for item in specified_id_list
@@ -390,12 +381,6 @@ async def parse_cmd(argv: Optional[Sequence[str]] = None):
                 config.XHS_CREATOR_ID_LIST = creator_id_list
             elif platform == PlatformEnum.BILIBILI:
                 config.BILI_CREATOR_ID_LIST = creator_id_list
-            elif platform == PlatformEnum.DOUYIN:
-                config.DY_CREATOR_ID_LIST = creator_id_list
-            elif platform == PlatformEnum.WEIBO:
-                config.WEIBO_CREATOR_ID_LIST = creator_id_list
-            elif platform == PlatformEnum.KUAISHOU:
-                config.KS_CREATOR_ID_LIST = creator_id_list
             elif platform == PlatformEnum.TIEBA:
                 config.TIEBA_CREATOR_URL_LIST = [
                     _normalize_tieba_creator_url(item) for item in creator_id_list
